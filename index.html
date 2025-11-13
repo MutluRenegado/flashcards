@@ -12,10 +12,21 @@
       margin: 0;
       padding: 20px;
       text-align: center;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    body.dark {
+      background-color: #121212;
+      color: #f0f0f0;
     }
     h1 {
       color: #800000;
       font-family: Georgia, serif;
+      margin-bottom: 20px;
+    }
+    body.dark h1 {
+      color: #ff6f61;
+    }
+    p {
       margin-bottom: 20px;
     }
     .link-list {
@@ -39,6 +50,27 @@
     .link-list a:hover {
       background: #a00000;
     }
+    body.dark .link-list a {
+      background: #ff6f61;
+      color: #121212;
+    }
+    body.dark .link-list a:hover {
+      background: #ff8a75;
+    }
+    #theme-toggle {
+      margin-bottom: 20px;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 8px;
+      background-color: #800000;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    #theme-toggle:hover {
+      background-color: #a00000;
+    }
     @media (max-width: 600px) {
       .link-list a {
         width: 100%;
@@ -47,7 +79,8 @@
   </style>
 </head>
 <body>
-  <h1>Julius Caesar Flashcards</h1>
+  <h1>Julius Caesar Flashcards</h1>
+  <button id="theme-toggle">Toggle Dark/Light Mode</button>
   <p>Click a link below to view a set of flashcards.</p>
   <div class="link-list">
     <a href="https://notebooklm.google.com/notebook/d4fb751f-86c3-4be4-95ac-0c425b7cd154?artifactId=575522e5-8c4d-457e-b5c1-e4d28e0b741c" target="_blank">Flashcard Set 1</a>
@@ -55,5 +88,14 @@
     <a href="https://notebooklm.google.com/notebook/d4fb751f-86c3-4be4-95ac-0c425b7cd154?artifactId=7e59ecca-9b90-4168-9e34-d72b872f65b0" target="_blank">Flashcard Set 3</a>
     <a href="https://notebooklm.google.com/notebook/d4fb751f-86c3-4be4-95ac-0c425b7cd154?artifactId=7dfb2d0a-c814-468f-94df-91be12eb91f5" target="_blank">Flashcard Set 4</a>
   </div>
+
+  <script>
+    const toggleButton = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    toggleButton.addEventListener('click', () => {
+      body.classList.toggle('dark');
+    });
+  </script>
 </body>
 </html>
